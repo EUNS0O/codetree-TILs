@@ -16,7 +16,7 @@ int main() {
         }
         else if(order=="get"){
             cin>>x;
-            cout<<v[x+1]<<endl;
+            cout<<v[x-1]<<endl;
         }
         else if(order=="pop_back"){
             v.pop_back();
