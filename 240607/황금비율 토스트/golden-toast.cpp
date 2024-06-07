@@ -13,13 +13,15 @@ int main() {
     int n;
     int m;
     cin>>n>>m;
-    string first[5];
-    cin>>first;
-    for (int i=0;i<5;i++){
-        l.insert(first[i],i);
+    string s;
+    cin>>s;
+
+    for (int i=0;i<s.length();i++){
+        l.push_back(s[i]);
     }
+
     string order;
-    int x;
+    char x;
     while(m--)
     {
         cin>>order;
@@ -27,7 +29,7 @@ int main() {
         if(order=="L"){
 
             if(it==l.begin()){
-               return; 
+               return 0; 
             }else{
                 it--;
             }
@@ -36,7 +38,7 @@ int main() {
         else if(order=="R"){
 
             if(it==l.end()){
-               return;
+               return 0;
 
             }else{
                 it++;
@@ -45,7 +47,7 @@ int main() {
         else if(order=="D"){
 
             if(it==l.end()){
-                return;
+                return 0;
             }else{
 
                 l.erase(it);
@@ -57,8 +59,12 @@ int main() {
 
             l.insert(it,x);
 
-            it++;
+            
         }
+    }
+
+    for(list<char>::iterator it = l.begin(); it !=l.end();it++){
+        cout<<*it;
     }
    
     return 0;
