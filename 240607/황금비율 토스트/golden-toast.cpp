@@ -1,14 +1,13 @@
 #include <iostream>
 #include <list>
-#include<vector>
+#include<string>
 
 using namespace std;
 
+
 int main() {
 
-    list<char> l;
-    list<char>::iterator it;
-    it = l.end();
+   
 
     int n;
     int m;
@@ -16,45 +15,38 @@ int main() {
     string s;
     cin>>s;
 
+    list<char> l;
     for (int i=0;i<s.length();i++){
         l.push_back(s[i]);
     }
 
-    string order;
-    char x;
-    while(m--)
-    {
+    list<char>::iterator it=l.end();
+
+    while(m--){
+        char order;
         cin>>order;
 
-        if(order=="L"){
+        if(order=='L'){
 
-            if(it==l.begin()){
-               return 0; 
-            }else{
+            if(it!=l.begin()){
                 it--;
             }
             
         }
-        else if(order=="R"){
+        else if(order=='R'){
 
-            if(it==l.end()){
-               return 0;
-
-            }else{
+            if(it!=l.end()){
                 it++;
             }
         }
-        else if(order=="D"){
+        else if(order=='D'){
 
-            if(it==l.end()){
-                return 0;
-            }else{
-
-                l.erase(it);
+            if(it!=l.end()){
+                it = l.erase(it);
 ;            }
         }
-        else if(order=="P"){
-
+        else if(order=='P'){
+            char x;
             cin>>x;
 
             l.insert(it,x);
