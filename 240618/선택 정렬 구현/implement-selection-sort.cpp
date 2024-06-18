@@ -1,34 +1,37 @@
 #include <iostream>
-#include<vector>
+
+
+#define MAX_N 100
+
 using namespace std;
 
-#define max = 100;
-int n
-int arr[max];
+// 변수 선언
+int n;
+int arr[MAX_N];
 
-
-void SelectionSor(){
-    for(int i=0;i<n-1;i++){
-        int min = i;
-        for(int j=1;j<n;j++){
-            if(arr[min]>arr[j]){
-                min = j;
-            }
-        }
-        int tmp = arr[i];
-        arr[i] = arr[min];
-        arr[min] = tmp;
+void SelectionSort() {
+    for(int i = 0; i < n - 1; i++) {
+        int min_index = i;
+        for(int k = i + 1; k < n; k++)
+            if(arr[min_index] > arr[k])
+                min_index = k;
+        
+        int temp = arr[i];
+        arr[i] = arr[min_index];
+        arr[min_index] = temp;
     }
+}
 
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
 int main() {
+    // 입력
+    cin >> n;
 
-    cin>>n;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    
+    SelectionSort();
 
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << " ";
     return 0;
 }
