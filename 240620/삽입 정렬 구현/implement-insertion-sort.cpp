@@ -2,35 +2,29 @@
 #include<vector>
 
 using namespace std;
-vector<int> arr={0};
-void insertionSort(arr[]){
-int size=arr.size();
-for(int i=1;i<size;i++){
-    int j = i -1;
-    int key = arr[i];
-    while(j>=0&&arr[j]>key){
-        arr[j+1]=arr[j];
-        j--
-    }
-    arr[j+1]=key;
-}
-for(int i=0;i<arr.size();i++){
-    cout<<arr[i]<<" ";
-}
-
-}
-
 
 int main() {
-    
     int n;
     cin>>n;
-    vector<int> arra={0};
+
+    int* arr = new int[n];
     int x;
-    while(n--){
-        cin>>x;
-        arra.push_back(x);
+
+    
+    for(int i=0;i<n;i++){
+            cin>>x;
+            arr[i]=x;
     }
-    insertionSort(arra);
+    
+    for(int i=0;i<n;i++){
+        int j = i+1;
+        while(j>0&&(arr[j-1]>arr[j])){
+            swap(arr[j-1],arr[j]);
+            j--;
+        }
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
     return 0;
 }
